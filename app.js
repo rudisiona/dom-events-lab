@@ -2,10 +2,12 @@
 
 const buttons = document.querySelectorAll('.button')
 const calculator = document.querySelector('#calculator')
-
+ 
 /*-------------------------------- Variables --------------------------------*/
 let screen = document.querySelector('.display')
 let currentInput = ''
+
+
 /*------------------------ Cached Element References ------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -29,7 +31,7 @@ function handleButtonClick(event) {
     if (value === 'C') {
         clearDisplay();
       } else if (value === '=') {
-        calculateResult(value);
+        calculateResult();
       } else {
         appendToInput(value);
       }
@@ -50,15 +52,36 @@ function appendToInput(value){
 screen.textContent = currentInput
 }
 
-function calculateResult(value){
-    console.log(value)
+function calculateResult(){
+   
+  let subCheck = screen.innerText.includes('-')
+   if (subCheck) {
+    let subtract = screen.innerText.split('-')
+    screen.innerText = subtract[0] - subtract[1]
+   } 
+
+let addCheck = screen.innerText.includes('+')
+   if (addCheck) {
+    let add = screen.innerText.split('+')
+    screen.innerText = +add[0] + +add[1]
+   } 
+   let multCheck = screen.innerText.includes('*')
+    if (multCheck) {
+    let multiply = screen.innerText.split('*')
+    screen.innerText = multiply[0] * multiply[1]
+   } 
+
+let divCheck = screen.innerText.includes('/')
+    if (divCheck) {
+    let divide = screen.innerText.split('/')
+    screen.innerText = divide[0] / divide[1]
+   }
 }
 
 
 function clearDisplay() {
     currentInput = ''
     screen.textContent = '0'
-    
 }
 
 
