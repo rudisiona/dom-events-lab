@@ -20,7 +20,7 @@ buttons.forEach((button) => {
 //     // console.log(event.target.innerText)
 //  if (event.target.classList.contains('number')) {
 //     screen.textContent = `${event.target.innerText}`
-//     clickedValue = event.target.innerText; // Store clicked text in the variable
+//     clickedValue = event.target.innerText;
 //  } 
 // })
 /*-------------------------------- Functions --------------------------------*/
@@ -37,30 +37,22 @@ function handleButtonClick(event) {
       }
     }
 
-
-
-
-
-function appendToInput(value){
+    function appendToInput(value){
  if (screen.textContent === '0'){
  currentInput = value
  } else {
    currentInput += value;
-  
-
 }
 screen.textContent = currentInput
 }
 
-function calculateResult(){
-   
+function calculateResult(){ 
   let subCheck = screen.innerText.includes('-')
    if (subCheck) {
     let subtract = screen.innerText.split('-')
     screen.innerText = subtract[0] - subtract[1]
    } 
-
-let addCheck = screen.innerText.includes('+')
+  let addCheck = screen.innerText.includes('+')
    if (addCheck) {
     let add = screen.innerText.split('+')
     screen.innerText = +add[0] + +add[1]
@@ -70,14 +62,12 @@ let addCheck = screen.innerText.includes('+')
     let multiply = screen.innerText.split('*')
     screen.innerText = multiply[0] * multiply[1]
    } 
-
-let divCheck = screen.innerText.includes('/')
+  let divCheck = screen.innerText.includes('/')
     if (divCheck) {
     let divide = screen.innerText.split('/')
     screen.innerText = divide[0] / divide[1]
    }
 }
-
 
 function clearDisplay() {
     currentInput = ''
