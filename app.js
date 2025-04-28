@@ -51,22 +51,26 @@ function calculateResult(){
    if (subCheck) {
     let subtract = screen.innerText.split('-')
     screen.innerText = subtract[0] - subtract[1]
+    currentInput = screen.innerText
    } 
   let addCheck = screen.innerText.includes('+')
    if (addCheck) {
     let add = screen.innerText.split('+')
     screen.innerText = +add[0] + +add[1]
+    currentInput = screen.innerText
    } 
    let multCheck = screen.innerText.includes('*')
     if (multCheck) {
     let multiply = screen.innerText.split('*')
     screen.innerText = multiply[0] * multiply[1]
+    currentInput = screen.innerText
    } 
   let divCheck = screen.innerText.includes('/')
     if (divCheck) {
     let divide = screen.innerText.split('/')
     screen.innerText = divide[0] / divide[1]
-   }
+    currentInput = screen.innerText
+  }
 }
 
 function clearDisplay() {
